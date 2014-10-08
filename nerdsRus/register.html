@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>Registration</title>
+
+<script type="text/javascript">
+function contentFilled()
+{
+	//Retrieve required values
+	var firstName = document.forms["register"]["first_name"].value;
+	var userName = document.forms["register"]["user_name"].value;
+	var password = document.forms["register"]["password"].value;
+	var passConf = document.forms["register"]["password2"].value;
+	var email = document.forms["register"]["email"].value;
+	var emailConf = document.forms["register"]["email2"].value;
+	
+	//Check to make sure all the required fields are filled
+	if(firstName == "" || userName == "" || password == "")
+	{
+		alert("Not all the fields are filled, please fill out all the required fields and submit again");
+		return false;
+	}
+	else
+	{
+		if(password != passConf)
+		{
+			return false;
+		}
+		
+		if(email != emailConf)
+		{
+			return false;
+		}
+		return true;
+	}
+}
+</script>
+
+<style type="text/css">
+label
+{
+	width: 8em;
+	float: left;
+	text-align: right;
+	margin-right: 0.5em;
+	display: block
+}
+</style>
+</head>
+
+<body>
+<a href = "./index.php"><img src="http://i1268.photobucket.com/albums/jj562/ItzExia/70e91612.png" border="0" alt="Website Logo"height = "30%" width = "50%" id = "logo"></a>
+<p>Please fill out the following form:</p>
+<form name="register" action="./register.php" method="post" onsubmit="return contentFilled()">
+<label>First Name</label> <input type="text" name="first_name" /><br />
+<label>User Name</label> <input type="text" name="user_name" /><br />
+<label>Password</label> <input type="password" name="password" /><br />
+<label>Confirm Password</label> <input type="password" name="password2" /><br />
+<p>Biography: This information is optional</p>
+<label>Location</label> <input type="text" name="local" /><br />
+<label>Email</label> <input type="text" name="email" /><br />
+<label>Comfirm Email</label> <input type="text" name="email2" /><br />
+<label>About You</label> <textarea name="about" rows="5"></textarea><br />
+<input type="submit" value="Submit" />
+<input type="reset" value="Reset" /><br />
+</form>
+</body>
+</html>
